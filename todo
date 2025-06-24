@@ -1,0 +1,15 @@
+Etapes
+. Télécharger les données ici https://github.com/datacharmer/test_db (download zip) Le fichier fait
+35Mo. Utiliser localsend pour donner aux autres étudiants.
+. Lire le fichier Readme pour installer.
+. Voir l'image pour voir la structure de la base (images/employees.png).
+Notes techniques
+. Respecter le rangement des répértoires
+. Utiliser Git en binôme
+. Utiliser Bootstrap
+Code
+Version 1
+(ok). Créer une page qui affiche la liste des départements
+(ok). Rajouter une colonne qui affiche le nom du manager en cours
+(ok). Mettre un lien sur chaque ligne de département pour afficher dans une autre page la liste des
+employés de ce département
