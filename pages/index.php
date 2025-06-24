@@ -18,7 +18,7 @@ require_once("../fonction/bdd.php");
     <main>
         <section>
             <article>
-                 <table border="1" width= 50% style="border-collapse: collapse" >
+                 <table border="2" width= 50% style="border-collapse: collapse" >
                     <th>numero departement<t/h>
                     <th>departement</th>
                     <th>last name</th>
