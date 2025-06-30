@@ -20,6 +20,15 @@ require_once("../fonction/bdd.php");
     <main>
         <div class="container">
         <div class="row justify-content-md-center">
+        <section>
+            <form action="recherche.php" method="get">
+                <p>Departement <input type="text" name="Departement" placeholder="Rechercher..."/></p>
+                <p>Nom <input type="text" name="Nom" placeholder="Rechercher..."/></p>
+                <p>Age entre <input type="number" name="min"/> et <input type="number" name="max"/></p>
+                <input type="submit" value="Rechercher" />    
+            </form>
+        </section>
+
         <section class="col-sm-12 col-lg-8 bloc">
             <article>
                  <table class=" table table-dark table-striped centered-table" >
