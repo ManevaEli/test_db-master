@@ -1,5 +1,5 @@
 <?php
-require_once("../inc/fonction.php");
+require_once("../fonction/bdd.php");
 $department=$_GET['Departement'];
 $nom=$_GET['Nom'];
 $minim=$_GET['min'];
