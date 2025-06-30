@@ -37,11 +37,38 @@ function get_employees()
 {
      $bdd = dbconnect();
      $nom_d=$_POST['dept_no'];
-    $resultat=sprintf("SELECT e.last_name, e.first_name FROM employees e 
+    $resultat=sprintf("SELECT e.last_name, e.first_name, e.emp_no FROM employees e 
         JOIN dept_emp de ON e.emp_no = de.emp_no
         WHERE de.dept_no = '%s'
         limit 50
         ",$nom_d);
+
+    $return =  mysqli_query($bdd,$resultat);
+
+    return $return;
+    
+}
+
+function get_employe()
+{
+     $bdd = dbconnect();
+     $nom_d=$_POST['emp'];
+    $resultat=sprintf("SELECT * from employees
+    where emp_no = '%s'
+        ",$nom_d);
+
+    $return =  mysqli_query($bdd,$resultat);
+
+    return $return;
+    
+}
+ function get_salaire()
+{
+     $bdd = dbconnect();
+     $nom_d=$_POST['emp'];
+    $resultat=sprintf("SELECT s.salary, t.title
+    from salaries s join titles t on s.emp_no = t.emp_no
+    where t.emp_no = '%s'",$nom_d);
 
     $return =  mysqli_query($bdd,$resultat);
 
