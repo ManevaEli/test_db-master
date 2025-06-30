@@ -8,7 +8,9 @@ require_once("../fonction/bdd.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
     <title>fiche emplyoee</title>
 </head>
 <body>

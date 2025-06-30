@@ -8,9 +8,8 @@ require_once("../fonction/bdd.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    	<link rel="stylesheet" type="text/css" href="style.css">
-        <link href="../bootstrap/css/bootstrap.min.css"rel="stylesheet">
-        <script src="../bootstrap/js/bootstrap.bundle.mini.js"></script>
+    	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+        <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
