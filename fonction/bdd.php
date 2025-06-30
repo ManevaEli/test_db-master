@@ -75,4 +75,20 @@ function get_employe()
     return $return;
     
 }
+function recherche($name, $dept, $min, $max)
+{    
+    $bdd = dbconnect();
+    $nom = sprintf ("SELECT e.first_name, e.last_name
+    FROM employees e 
+    JOIN dept_emp de ON e.emp_no = de.emp_no
+    JOIN departments d ON de.dept_no = d.dept_no 
+    WHERE 1=1 
+    AND e.first_name LIKE '%%%s%%'
+    AND d.dept_name LIKE '%%%s%%'
+    AND TIMESTAMPDIFF(YEAR, e.birth_date, NOW()) BETWEEN %d AND %d LIMIT 20", $name, $dept, $min, $max);
+    $sqlpub=mysqli_query($bdd,$nom);
+    return $sqlpub;
+
+}
+
 ?>
