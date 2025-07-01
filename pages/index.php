@@ -37,12 +37,13 @@ require_once("../fonction/bdd.php");
                                     <th scope="col">Numéro département</th>
                                     <th scope="col">Département</th>
                                     <th scope="col">Nom</th>
-                                    <th scope="col">Date</th>
+                                    <th scope="col">Nombre d'emplyee</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <body>
                                 <?php 
                                 $resultat = get_actualMAnager();
+                               
                                 while ($donnees = mysqli_fetch_assoc($resultat)) { ?>
                                     <tr>
                                         <td scope="row"><?php echo $donnees['dept_no']; ?></td>
@@ -55,8 +56,13 @@ require_once("../fonction/bdd.php");
                                             </form>
                                         </td>
                                         <td scope="row"><?php echo $donnees['last_name']; ?> <?php echo $donnees['first_name']; ?></td>
-                                        <td scope="row"><?php echo $donnees['from_date']; ?></td>
+                                       
+                                       <?php 
+                                         $nombre_emp= countEmplye();
+                                        { ?>
+                                        <td scope="row"><?php echo $nombre_emp['nb']; ?></td>
                                     </tr>
+                                      <?php } ?>
                                 <?php } ?>
                             </tbody>
                         </table>

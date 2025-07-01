@@ -147,5 +147,12 @@ function searchEmploye($dept, $name, $min, $max, $page)
     mysqli_free_result($tab);
     return $result;
 }
+function countEmplye()
+{
+   $bdd = dbconnect();
+  $resultat=mysqli_query($bdd ," Select count(*) nb from v_employees_departements group by dept_name");
+  $donnees = mysqli_fetch_assoc($resultat);
+  return $donnees;
+}
 
 ?>

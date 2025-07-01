@@ -8,7 +8,7 @@ Notes techniques
 . Utiliser Git en binôme
 . Utiliser Bootstrap
 Code
-Version 1
+Version 1 (maneva, mariah)
 (ok). Créer une page qui affiche la liste des départements
 (ok). Rajouter une colonne qui affiche le nom du manager en cours
 (ok). Mettre un lien sur chaque ligne de département pour afficher dans une autre page la liste des employés de ce département
@@ -27,7 +27,6 @@ Version 2
 --(ok)créer un lien pour afficher les 20 lignes précédentes
 
 --(maneva)Ajouter une colonne nombre employé sur la liste des départements
---Créer une page pour afficher un tableau contenant le nombre d'employé (homme et femme ), et le
-  salaire moyen pour chaque emploi
---Dans la fiche employé, mettre l'emploi le plus long (en terme de date)
+--(mariah)Créer une page pour afficher un tableau contenant le nombre d'employé (homme et femme ), et le salaire moyen pour chaque emploi
+--(maneva)Dans la fiche employé, mettre l'emploi le plus long (en terme de date)
 
