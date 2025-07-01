@@ -91,19 +91,17 @@ function recherche($name, $dept, $min, $max)
 
 }
 function getQuery($dept, $name, $min, $max, $page) {
-    $sql = "SELECT * FROM employees e 
-    JOIN dept_emp de ON e.emp_no = de.emp_no
-    JOIN departments d ON de.dept_no = d.dept_no WHERE 1=1";
+    $sql = "SELECT * FROM v_employees_departements WHERE 1=1";
     if (strcmp($dept, ' ') != 0) {
-        $sql .= sprintf(" AND d.dept_name LIKE '%%%s%%'", $dept);
+        $sql .= sprintf(" AND dept_name LIKE '%%%s%%'", $dept);
     }
 
     if (strcmp($name, ' ') != 0) {
-        $sql .= sprintf(" AND e.first_name LIKE '%%%s%%'", $name);
+        $sql .= sprintf(" AND first_name LIKE '%%%s%%'", $name);
     }
 
     if (strcmp($min, ' ') != 0 && strcmp($max, ' ') != 0 && $min < $max) {
-        $sql .= " AND e.birth_date < DATE_SUB(NOW(), INTERVAL " . $min . " YEAR) AND e.birth_date > DATE_SUB(NOW(), INTERVAL " . $max . " YEAR)";
+        $sql .= " AND birth_date < DATE_SUB(NOW(), INTERVAL " . $min . " YEAR) AND birth_date > DATE_SUB(NOW(), INTERVAL " . $max . " YEAR)";
     }
 
     if ($page == 1) {
@@ -117,19 +115,18 @@ function getQuery($dept, $name, $min, $max, $page) {
 
 function getNbResult($dept, $name, $min, $max)
 {
-    $sql = "SELECT COUNT(*) nb FROM employees e 
-    JOIN dept_emp de ON e.emp_no = de.emp_no
-    JOIN departments d ON de.dept_no = d.dept_no WHERE 1=1";
+    $sql = "SELECT COUNT(*) nb FROM v_employees_departements
+    WHERE 1=1";
     if (strcmp($dept, ' ') != 0) {
-        $sql .= sprintf(" AND d.dept_name LIKE '%%%s%%'", $dept);
+        $sql .= sprintf(" AND dept_name LIKE '%%%s%%'", $dept);
     }
 
     if (strcmp($name, ' ') != 0) {
-        $sql .= sprintf(" AND e.first_name LIKE '%%%s%%'", $name);
+        $sql .= sprintf(" AND first_name LIKE '%%%s%%'", $name);
     }
 
     if (strcmp($min, ' ') != 0 && strcmp($max, ' ') != 0 && $min < $max) {
-        $sql .= " AND e.birth_date < DATE_SUB(NOW(), INTERVAL " . $min . " YEAR) AND e.birth_date > DATE_SUB(NOW(), INTERVAL " . $max . " YEAR)";
+        $sql .= " AND birth_date < DATE_SUB(NOW(), INTERVAL " . $min . " YEAR) AND birth_date > DATE_SUB(NOW(), INTERVAL " . $max . " YEAR)";
     }
 
     $result = mysqli_query(dbconnect(), $sql);
