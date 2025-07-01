@@ -11,8 +11,7 @@ Code
 Version 1
 (ok). Créer une page qui affiche la liste des départements
 (ok). Rajouter une colonne qui affiche le nom du manager en cours
-(ok). Mettre un lien sur chaque ligne de département pour afficher dans une autre page la liste des
-employés de ce département
+(ok). Mettre un lien sur chaque ligne de département pour afficher dans une autre page la liste des employés de ce département
 
 
 Version 2
@@ -22,7 +21,13 @@ Version 2
 
 
 (mariah)
---formulaire de recherche
---seulement 20,10
---créer un lien suivant pour afficher les 20 prochaine lignes
--- créer un lien pour afficher les 20 lignes précédentes
+--(ok)formulaire de recherche
+--(ok)seulement 20,10
+--(ok)créer un lien suivant pour afficher les 20 prochaine lignes
+--(ok)créer un lien pour afficher les 20 lignes précédentes
+
+--(maneva)Ajouter une colonne nombre employé sur la liste des départements
+--Créer une page pour afficher un tableau contenant le nombre d'employé (homme et femme ), et le
+  salaire moyen pour chaque emploi
+--Dans la fiche employé, mettre l'emploi le plus long (en terme de date)
+

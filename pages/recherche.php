@@ -42,10 +42,21 @@ $result=searchEmploye($department, $nom, $minim, $maxim, $page);
         </tbody>
     </table>
     </body>
-    <footer>
-    <a href="recherche.php?Departement=<?= $department ?>&Nom=<?= $nom ?>&min=<?= $minim ?>&max=<?= $maxim ?>&page=<?= $page-1 ?>">précédent</a>
-    <a href="recherche.php?Departement=<?= $department ?>&Nom=<?= $nom ?>&min=<?= $minim ?>&max=<?= $maxim ?>&page=<?= $page+1 ?>">suivant</a>
-    <p><a href="index.php">retourner</a></p>
+    <footer class="text-center mt-4 mb-4">
+
+    <div class="btn-group" role="group">
+        <a href="recherche.php?Departement=<?= $department ?>&Nom=<?= $nom ?>&min=<?= $minim ?>&max=<?= $maxim ?>&page=<?= $page-1 ?>" 
+           class="btn btn-outline-primary <?= $page <= 1 ? 'disabled' : '' ?>">
+           Précédent
+        </a>
+        <a href="recherche.php?Departement=<?= $department ?>&Nom=<?= $nom ?>&min=<?= $minim ?>&max=<?= $maxim ?>&page=<?= $page+1 ?>" 
+           class="btn btn-outline-primary">
+           Suivant
+        </a>
+    </div>
+    <div class="mt-2">
+        <a href="index.php" class="btn btn-link">Retour à l'accueil</a>
+    </div>
 </footer>
 </html>
 
