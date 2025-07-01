@@ -4,8 +4,12 @@ $department=$_GET['Departement'];
 $nom=$_GET['Nom'];
 $minim=$_GET['min'];
 $maxim=$_GET['max'];
-$page= isset($_GET['page']) ? (int)$_GET['page'] : 1;
-$result=recherche($nom, $department, $minim, $maxim);
+if (!isset($_GET['page'])) {
+    $page = 1;
+}else{
+    $page = $_GET['page'];
+}
+$result=searchEmploye($department, $nom, $minim, $maxim, $page);
 
 ?> 
 <!DOCTYPE html>
@@ -17,22 +21,30 @@ $result=recherche($nom, $department, $minim, $maxim);
         <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-    <?php
-if (mysqli_num_rows($result) > 0) { ?>
-        <?php while ($data = mysqli_fetch_assoc($result)) { ?>
-            <p><?php echo $data['first_name'], ' ', $data['last_name']; ?></p>
-        <?php } ?>
-<?php } else {
-    echo "Aucun employe ne correspond à votre recherche '".$nom."'";
-}
-mysqli_free_result($result);
-?>
-    <p><a href="?page=0">precedant </a> <a href="?page=1">suivant</a></p>
-
-
-
+    <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+            <th scope="col">Emp no</th>
+            <th scope="col">Departement</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($result as $le): ?>
+            <tr>
+                <td><?= htmlspecialchars($le['emp_no']) ?></td>
+                <td><?= htmlspecialchars($le['dept_name']) ?></td>
+                <td><?= htmlspecialchars($le['first_name']) ?></td>
+                <td><?= htmlspecialchars($le['last_name']) ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
     </body>
     <footer>
+    <a href="recherche.php?Departement=<?= $department ?>&Nom=<?= $nom ?>&min=<?= $minim ?>&max=<?= $maxim ?>&page=<?= $page-1 ?>">précédent</a>
+    <a href="recherche.php?Departement=<?= $department ?>&Nom=<?= $nom ?>&min=<?= $minim ?>&max=<?= $maxim ?>&page=<?= $page+1 ?>">suivant</a>
     <p><a href="index.php">retourner</a></p>
 </footer>
 </html>

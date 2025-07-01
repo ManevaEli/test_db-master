@@ -90,5 +90,65 @@ function recherche($name, $dept, $min, $max)
     return $sqlpub;
 
 }
+function getQuery($dept, $name, $min, $max, $page) {
+    $sql = "SELECT * FROM employees e 
+    JOIN dept_emp de ON e.emp_no = de.emp_no
+    JOIN departments d ON de.dept_no = d.dept_no WHERE 1=1";
+    if (strcmp($dept, ' ') != 0) {
+        $sql .= sprintf(" AND d.dept_name LIKE '%%%s%%'", $dept);
+    }
+
+    if (strcmp($name, ' ') != 0) {
+        $sql .= sprintf(" AND e.first_name LIKE '%%%s%%'", $name);
+    }
+
+    if (strcmp($min, ' ') != 0 && strcmp($max, ' ') != 0 && $min < $max) {
+        $sql .= " AND e.birth_date < DATE_SUB(NOW(), INTERVAL " . $min . " YEAR) AND e.birth_date > DATE_SUB(NOW(), INTERVAL " . $max . " YEAR)";
+    }
+
+    if ($page == 1) {
+        $sql .= " LIMIT 20";
+    } else {
+        $sql .= " LIMIT " . 20 * ($page - 1) . ", 20";
+    }
+
+    return $sql;
+}
+
+function getNbResult($dept, $name, $min, $max)
+{
+    $sql = "SELECT COUNT(*) nb FROM employees e 
+    JOIN dept_emp de ON e.emp_no = de.emp_no
+    JOIN departments d ON de.dept_no = d.dept_no WHERE 1=1";
+    if (strcmp($dept, ' ') != 0) {
+        $sql .= sprintf(" AND d.dept_name LIKE '%%%s%%'", $dept);
+    }
+
+    if (strcmp($name, ' ') != 0) {
+        $sql .= sprintf(" AND e.first_name LIKE '%%%s%%'", $name);
+    }
+
+    if (strcmp($min, ' ') != 0 && strcmp($max, ' ') != 0 && $min < $max) {
+        $sql .= " AND e.birth_date < DATE_SUB(NOW(), INTERVAL " . $min . " YEAR) AND e.birth_date > DATE_SUB(NOW(), INTERVAL " . $max . " YEAR)";
+    }
+
+    $result = mysqli_query(dbconnect(), $sql);
+    if ($data = mysqli_fetch_assoc($result)) {
+        return $data['nb'];
+    }
+    return 0;
+}
+
+function searchEmploye($dept, $name, $min, $max, $page)
+{
+    $sql = getQuery($dept, $name, $min, $max, $page);
+    $tab = mysqli_query(dbconnect(), $sql);
+    $result = array();
+    while ($data = mysqli_fetch_assoc($tab)) {
+        $result[] = $data;
+    }
+    mysqli_free_result($tab);
+    return $result;
+}
 
 ?>

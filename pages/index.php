@@ -24,7 +24,7 @@ require_once("../fonction/bdd.php");
             <form action="recherche.php" method="get">
                 <p>Departement <input type="text" name="Departement" placeholder="Rechercher..."/></p>
                 <p>Nom <input type="text" name="Nom" placeholder="Rechercher..."/></p>
-                <p>Age entre <input type="number" name="min"/> et <input type="number" name="max"/></p>
+                <p>Age entre <input type="number" name="min" value="0" placeholder="Age min"/> et <input type="number" name="max" value="1000" placeholder="Age max"/></p>
                 <input type="submit" value="Rechercher" />    
             </form>
         </section>
