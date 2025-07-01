@@ -147,12 +147,16 @@ function searchEmploye($dept, $name, $min, $max, $page)
     mysqli_free_result($tab);
     return $result;
 }
-function countEmplye()
+function countSalaire()
 {
-   $bdd = dbconnect();
-  $resultat=mysqli_query($bdd ," Select count(*) nb from v_employees_departements group by dept_name");
-  $donnees = mysqli_fetch_assoc($resultat);
-  return $donnees;
+    $bdd = dbconnect();
+    $resultat = mysqli_query($bdd, "SELECT dept_name, COUNT(*) AS nb, AVG(salary) AS salaire_moyenne FROM v_employees_departements GROUP BY dept_name");
+    
+    $donnees = [];
+    while ($ligne = mysqli_fetch_assoc($resultat)) {
+        $donnees[] = $ligne;
+    }
+    return $donnees;
 }
 
 ?>

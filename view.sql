@@ -4,12 +4,14 @@ SELECT
     e.first_name,
     e.last_name,
     d.dept_name,
-    e.birth_date
-   
+    e.birth_date,
+    s.salary
 FROM 
 employees e 
     JOIN dept_emp de 
     ON e.emp_no = de.emp_no
     JOIN departments d 
-    ON de.dept_no = d.dept_no;
+    ON de.dept_no = d.dept_no
+    JOIN salaries s
+    ON s.emp_no = e.emp_no;
 
