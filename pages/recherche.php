@@ -22,7 +22,6 @@ $result=searchEmploye($department, $nom, $minim, $maxim, $page);
     </head>
     <body>
     <table class="table table-striped table-hover">
-    <thead>
     <tr>
             <th scope="col">Emp no</th>
             <th scope="col">Departement</th>
