@@ -12,6 +12,7 @@ require_once("../fonction/bdd.php");
     <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <title>fiche emplyoee</title>
+    
 </head>
 <body>
 
@@ -67,7 +68,9 @@ require_once("../fonction/bdd.php");
         <?php }  ?> 
      </article>
      </table>
+        <a href="index.php">accueil</a>
      </section>
+       
      </div>
      </div>
 </main>

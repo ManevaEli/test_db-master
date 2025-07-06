@@ -56,14 +56,15 @@ require_once("../fonction/bdd.php");
                                             </form>
                                         </td>
                                         <td scope="row"><?php echo $donnees['last_name']; ?> <?php echo $donnees['first_name']; ?></td>      
-                                        <td scope="row"><?php echo $donnees['nb']; ?></td>      
+                                        <td scope="row"><?php echo formaterChiffre($donnees['nb']); ?></td>      
 
                                     </tr>
                                       <?php } ?>
                            
-                            </tbody>
+                            </body>
                         </table>
                     </article>
+               
                 </section>
             </div>
         </div>

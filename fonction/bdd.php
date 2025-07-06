@@ -181,4 +181,8 @@ function formatDate($dateStr) {
     return strftime('%d %b %Y', $timestamp);
 }
 
+function formaterChiffre($nb){
+     return number_format($nb, 0, '', ' ');
+}
+
 ?>
