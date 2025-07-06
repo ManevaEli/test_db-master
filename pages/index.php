@@ -35,9 +35,9 @@ require_once("../fonction/bdd.php");
                             <thead>
                                 <tr>
                                     <th scope="col">Numéro département</th>
-                                    <th scope="col">Département</th>
-                                    <th scope="col">Nom</th>
-                                    <th scope="col">Nombre d'emplyee</th>
+                                    <th scope="col">Nom du Département</th>
+                                    <th scope="col">Nom du manager</th>
+                                    <th scope="col">Nombre d'Employee</th>
                                 </tr>
                             </thead>
                             <body>
@@ -55,15 +55,12 @@ require_once("../fonction/bdd.php");
                                                 </button>
                                             </form>
                                         </td>
-                                        <td scope="row"><?php echo $donnees['last_name']; ?> <?php echo $donnees['first_name']; ?></td>
-                                       
-                                       <?php 
-                                         $nombre_emp= countEmplye();
-                                        { ?>
-                                        <td scope="row"><?php echo $nombre_emp['nb']; ?></td>
+                                        <td scope="row"><?php echo $donnees['last_name']; ?> <?php echo $donnees['first_name']; ?></td>      
+                                        <td scope="row"><?php echo $donnees['nb']; ?></td>      
+
                                     </tr>
                                       <?php } ?>
-                                <?php } ?>
+                           
                             </tbody>
                         </table>
                     </article>

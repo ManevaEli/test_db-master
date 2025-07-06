@@ -40,8 +40,8 @@ require_once("../fonction/bdd.php");
                     <td scope="row"><?php echo $donnees['last_name']; ?></td>
                     <td scope="row"><?php echo $donnees['first_name']; ?></td>
                     <td scope="row"><?php echo $donnees['gender']; ?></td>
-                    <td scope="row"><?php echo $donnees['hire_date']; ?></td>
-                    <td scope="row"><?php echo $donnees['birth_date']; ?></td>
+                    <td scope="row"><?php echo formatDate($donnees['hire_date']); ?></td>
+                    <td scope="row"><?php echo formatDate($donnees['birth_date']); ?></td>
      </tr>
                     
         <?php }  ?> 
