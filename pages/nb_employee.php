@@ -20,6 +20,7 @@ $result = countSalaire();
         <thead>
             <tr>
                 <th>Département</th>
+                <th>Genre</th>
                 <th>Nombre d'employés</th>
                 <th>Salaire moyen</th>
             </tr>
@@ -28,6 +29,7 @@ $result = countSalaire();
             <?php foreach ($result as $ligne): ?>
                 <tr>
                     <td><?= htmlspecialchars($ligne['dept_name']) ?></td>
+                    <td><?= htmlspecialchars($ligne['gender']) ?></td>
                     <td><?= htmlspecialchars($ligne['nb']) ?></td>
                     <td><?= number_format($ligne['salaire_moyenne'], 2) ?> $</td>
                 </tr>
