@@ -13,12 +13,30 @@ require_once("../fonction/bdd.php");
 
     <title>departement</title>
 </head>
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <h2>Les employés</h2>
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php">Recherche</a>
+        </li>
+    </div>
+  </div>
+</nav></header>
 <body>
     <main>
         <div class="container">
-            <div class="row justify-content-md-center">
+            <div class="row justify-content-md-center text-center">
 
-        <section class="col-sm-12 col-lg-8 bloc py-5">
+           
+
+        <section class="col-sm-12 col-lg-8 bloc py-5" >
+             <h1>Employé du département <?php echo $_POST['dept_no'] ?></h1>
             <article>
              <table class="table table-striped centered-table">
                     <th scope="col">last name</th>

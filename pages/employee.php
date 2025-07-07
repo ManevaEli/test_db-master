@@ -65,7 +65,7 @@ require_once("../fonction/bdd.php");
                     <td scope="row"><?php echo formatDate($donnees['birth_date']); ?></td>
      </tr>
                     
-        <?php }  ?> 
+      
 
      </table>
      </article>
@@ -81,13 +81,16 @@ require_once("../fonction/bdd.php");
      $resultat=get_salaire();
      while ($donnees = mysqli_fetch_assoc($resultat)) { ?>
                     <tr>
-                        <td scope="row"><?php echo$donnees['salary']; ?></td>
+                        <td scope="row">$ <?php echo formaterChiffre($donnees['salary']); ?> </td>
                     <td scope="row"><?php echo $donnees['title']; ?> </td>
-     </tr>
-                    
+     </tr>  
         <?php }  ?> 
      </article>
      </table>
+     <article>
+      <h1> Emploi le plus long</h1>
+      <>
+     </article>
      </section>
        
      </div>

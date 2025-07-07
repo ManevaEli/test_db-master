@@ -50,6 +50,7 @@ require_once("../fonction/bdd.php");
                                         <td scope="row">
                                             <form action="departement.php" method="post" style="display: inline;">
                                                 <input type="hidden" name="dept_no" value="<?php echo $donnees['dept_no']; ?>">
+                                                <input type="hidden" name="dept_name" value="<?php echo $donnees['dept_name']; ?>">
                                                 <button type="submit" style="background: none; border: none; color: blue; text-decoration: underline; cursor: pointer;">
                                                     <?php echo $donnees['dept_name']; ?>
                                                 </button>
