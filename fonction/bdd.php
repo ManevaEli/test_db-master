@@ -78,21 +78,21 @@ function get_employe()
     return $return;
     
 }
-function recherche($name, $dept, $min, $max)
-{    
-    $bdd = dbconnect();
-    $nom = sprintf ("SELECT e.first_name, e.last_name
-    FROM employees e 
-    JOIN dept_emp de ON e.emp_no = de.emp_no
-    JOIN departments d ON de.dept_no = d.dept_no 
-    WHERE 1=1 
-    AND e.first_name LIKE '%%%s%%'
-    AND d.dept_name LIKE '%%%s%%'
-    AND TIMESTAMPDIFF(YEAR, e.birth_date, NOW()) BETWEEN %d AND %d LIMIT 20", $name, $dept, $min, $max);
-    $sqlpub=mysqli_query($bdd,$nom);
-    return $sqlpub;
+// function recherche($name, $dept, $min, $max)
+// {    
+//     $bdd = dbconnect();
+//     $nom = sprintf ("SELECT e.first_name, e.last_name
+//     FROM employees e 
+//     JOIN dept_emp de ON e.emp_no = de.emp_no
+//     JOIN departments d ON de.dept_no = d.dept_no 
+//     WHERE 1=1 
+//     AND e.first_name LIKE '%%%s%%'
+//     AND d.dept_name LIKE '%%%s%%'
+//     AND TIMESTAMPDIFF(YEAR, e.birth_date, NOW()) BETWEEN %d AND %d LIMIT 20", $name, $dept, $min, $max);
+//     $sqlpub=mysqli_query($bdd,$nom);
+//     return $sqlpub;
 
-}
+// }
 function getQuery($dept, $name, $min, $max, $page) {
     $sql = "SELECT * FROM v_employees_departements WHERE 1=1";
     if (strcmp($dept, ' ') != 0) {
@@ -104,14 +104,12 @@ function getQuery($dept, $name, $min, $max, $page) {
     }
 
     if (strcmp($min, ' ') != 0 && strcmp($max, ' ') != 0 && $min < $max) {
-        $sql .= " AND birth_date < DATE_SUB(NOW(), INTERVAL " . $min . " YEAR) AND birth_date > DATE_SUB(NOW(), INTERVAL " . $max . " YEAR)";
+        $sql .= " AND birth_date < DATE_SUB(NOW(), INTERVAL " . $min . " YEAR)";
+        $sql .= " AND birth_date > DATE_SUB(NOW(), INTERVAL " . $max . " YEAR)";
     }
 
-    if ($page == 1) {
-        $sql .= " LIMIT 20";
-    } else {
-        $sql .= " LIMIT " . 20 * ($page - 1) . ", 20";
-    }
+    $offset = 20 * ($page - 1);
+    $sql .= " LIMIT $offset, 20";
 
     return $sql;
 }
@@ -153,7 +151,7 @@ function searchEmploye($dept, $name, $min, $max, $page)
 function countSalaire()
 {
     $bdd = dbconnect();
-    $resultat = mysqli_query($bdd, "SELECT dept_name, COUNT(*) AS nb, AVG(salary) AS salaire_moyenne FROM v_employees_departements GROUP BY dept_name");
+    $resultat = mysqli_query($bdd, "SELECT dept_name, gender, COUNT(*) AS nb, AVG(salary) AS salaire_moyenne FROM v_employees_departements GROUP BY dept_name, gender");
     
     $donnees = [];
     while ($ligne = mysqli_fetch_assoc($resultat)) {
