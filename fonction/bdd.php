@@ -183,4 +183,19 @@ function formaterChiffre($nb){
      return number_format($nb, 0, '', ' ');
 }
 
+function getEmploipluslong()
+{
+    $bdd = dbconnect();
+     $nom_d=$_POST['emp'];
+    $resultat=sprintf("SELECT s.salary, t.title, s.from_date , s.to_date , DATEDIFF(s.to_date, s.from_date) AS duration
+    from salaries s join titles t on s.emp_no = t.emp_no
+    where t.emp_no = '%s'ORDER BY duration DESC
+    LIMIT 2" ,$nom_d);
+
+    $return =  mysqli_query($bdd,$resultat);
+
+    return $return;
+    
+}
+
 ?>

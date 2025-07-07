@@ -68,6 +68,7 @@ require_once("../fonction/bdd.php");
       
 
      </table>
+       <?php }?>
      </article>
 
         <article>
@@ -85,11 +86,36 @@ require_once("../fonction/bdd.php");
                     <td scope="row"><?php echo $donnees['title']; ?> </td>
      </tr>  
         <?php }  ?> 
-     </article>
      </table>
+     </article>
      <article>
-      <h1> Emploi le plus long</h1>
-      <>
+      <h2> Emploi le plus long </h2>
+       <table  class="table table-striped centered-table" >
+                    <th scope="col" >Fonction</th>
+                    <th scope="col">date de debut</th>
+                    <th scope="col">date de fin</th>
+                    <th scope="col">durée</th>
+            
+     <?php 
+
+     $resultat=getEmploipluslong();
+     while ($donnees = mysqli_fetch_assoc($resultat)) { ?>
+                    <tr>
+                        <td scope="row"><?php echo $donnees['title'];?></td>
+                    <td scope="row"><?php echo formatDate($donnees['from_date']);?> </td>
+                    <?php if (formatDate($donnees['to_date']) == "01 Jan 9999") { ?>
+                    
+                        <td scope="row">continu</td>
+                         <td scope="row"> ++ jours</td>
+
+                  <?php   }  else  { ?>
+                    <td scope="row"><?php echo formatDate($donnees['to_date']);?> </td>
+                     <td scope="row"><?php echo formaterChiffre($donnees['duration']);?>  jours</td>    
+                    <?php } ?>         
+     </tr>  
+    
+     <?php } ?>
+     </table>
      </article>
      </section>
        
