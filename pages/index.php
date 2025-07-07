@@ -1,6 +1,5 @@
 <?php 
 require_once("../fonction/bdd.php");
-
 ?>
 
 <!DOCTYPE html>

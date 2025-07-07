@@ -18,7 +18,7 @@ require_once("../fonction/bdd.php");
 
 <header>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <h2>Fiche Employee</h2>
+    <h3>Département <?php echo $_POST['name']; ?></h3>
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -28,7 +28,8 @@ require_once("../fonction/bdd.php");
         <li class="nav-item">
           <a class="nav-link" href="index.php">Recherche</a>
         </li>
-    </div>
+</div>
+
   </div>
 </nav>
 
@@ -38,8 +39,7 @@ require_once("../fonction/bdd.php");
             <div class="row justify-content-md-center">
     <section  class="col-sm-12 col-lg-8 bloc py-5">
         <article>
-          
-
+            <p class="text-info-emphasis"> Fiche d'Employe</p>
               <?php 
 
      $resultat=get_employe();
@@ -50,11 +50,11 @@ require_once("../fonction/bdd.php");
 
                       <table class="table table-striped centered-table">
                     <th scope="col">numero</th>
-                    <th scope="col">last name</th>
-                    <th scope="col">first name </th>
-                     <th scope="col">gender</th>
-                     <th scope="col">hire_date</th>
-                     <th scope="col">Birthday</th>
+                    <th scope="col">nom</th>
+                    <th scope="col">prénoms</th>
+                     <th scope="col">genre</th>
+                     <th scope="col">date de début</th>
+                     <th scope="col">date de naissance</th>
 
                     <tr>
                     <td scope="row"><?php echo $donnees['emp_no']; ?></td>
@@ -63,11 +63,18 @@ require_once("../fonction/bdd.php");
                     <td scope="row"><?php echo $donnees['gender']; ?></td>
                     <td scope="row"><?php echo formatDate($donnees['hire_date']); ?></td>
                     <td scope="row"><?php echo formatDate($donnees['birth_date']); ?></td>
-     </tr>
-                    
-      
-
+     </tr>               
      </table>
+     <section class="buttons py-5" style="display: flex; justify-content: center; gap: 8px;">
+    <form class="button-group" action="formulairManager.php" method="POST">
+        <button class="btn btn-primary btn-lg" type="submit">Devenir Manager</button>
+        <input type = "hidden" name="no_emp" value="<?php echo $donnees['emp_no']; ?>"> 
+        <input type = "hidden" name="no_emp" value="<?php echo $donnees['emp_no']; ?>"> 
+    </form>
+    <form class="button-group" action="formulairManager.php" method="POST">
+        <button class="btn btn-secondary btn-lg" type="submit">Changer de département</button>
+    </form>
+</section>
        <?php }?>
      </article>
 
@@ -75,8 +82,8 @@ require_once("../fonction/bdd.php");
 
         <h2>Antecedant</h2>
          <table  class="table table-striped centered-table" >
-                    <th scope="col" >salaire</th>
-                    <th scope="col">first nam </th>
+                    <th scope="col">salaire</th>
+                    <th scope="col"> fonction </th>
               <?php 
 
      $resultat=get_salaire();
@@ -106,7 +113,7 @@ require_once("../fonction/bdd.php");
                     <?php if (formatDate($donnees['to_date']) == "01 Jan 9999") { ?>
                     
                         <td scope="row">continu</td>
-                         <td scope="row"> ++ jours</td>
+                         <td scope="row">jours ++</td>
 
                   <?php   }  else  { ?>
                     <td scope="row"><?php echo formatDate($donnees['to_date']);?> </td>

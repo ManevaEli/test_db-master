@@ -28,5 +28,23 @@ Version 2
 
 --(ok)(maneva)Ajouter une colonne nombre employé sur la liste des départements
 --(ok)(mariah)Créer une page pour afficher un tableau contenant le nombre d'employé (homme et femme ), et le salaire moyen pour chaque emploi
---(maneva)Dans la fiche employé, mettre l'emploi le plus long (en terme de date)
+--(ok)(maneva)Dans la fiche employé, mettre l'emploi le plus long (en terme de date)
 
+
+
+Version 4
+(Maria)
+. Dans la fiche de l'employé, mettre un bouton "changer de département". Cela va ouvrir un formulaire
+(choix département, date de début).
+a. Vérifier que le nouveau département s'affiche bien après l'ajout
+b. Mettre en haut du formulaire le département actuel avec la date de début( dans la zone de liste, ne
+pas mettre le département actuel )
+c. Mettre un message de d'erreur si la date de début du nouveau département est antérieur à la date
+du début de l'actuel'
+
+
+(maneva ) 
+. Dans la fiche de l'employé, mettre un bouton "Devenir Manager". Cela va ouvrir un formulaire (Date de début).
+a. Vérifier dans la liste des départements qu'il est bien le nouveau manager
+b. Mettre en haut du formulaire le nom du manager en cours.
+c. Mettre un message de d'erreur si la date de début du nouveau manager est antérieur à la date du début de l'actuel

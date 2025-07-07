@@ -1,6 +1,7 @@
 <?php 
 require_once("../fonction/bdd.php");
 
+
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +37,7 @@ require_once("../fonction/bdd.php");
            
 
         <section class="col-sm-12 col-lg-8 bloc py-5" >
-             <h1>Employé du département <?php echo $_POST['dept_no'] ?></h1>
+             <h1>Employé du département </br> <?php echo $_POST['dept_name']; ?></h1>
             <article>
              <table class="table table-striped centered-table">
                     <th scope="col">last name</th>
@@ -47,8 +48,9 @@ require_once("../fonction/bdd.php");
                     <tr>
                    <form action="employee.php" method="post">
                         <td scope="row">
-                            <input type="hidden" name="emp" value="<?php echo $donnees['emp_no']; ?>">
                             <button type="submit" style="background: none; border: none; color: blue; text-decoration: underline; cursor: pointer;">
+                                <input type="hidden" name="emp" value="<?php echo $donnees['emp_no']; ?>">
+                            <input type="hidden" name="name" value="<?php echo $_POST['dept_name']; ?>">
                                 <?php echo$donnees['last_name']; ?>
                             </button>
                         </td>
