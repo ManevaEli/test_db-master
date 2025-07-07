@@ -13,21 +13,29 @@ require_once("../fonction/bdd.php");
 </head>
 <body>
     <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <h1>Liste des départements</h1>
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="nb_employee.php">Salaire</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="formulairerech.php">Recherche</a>
+        </li>
+</div>
+
+  </div>
+</nav>
+
     </header>
     <main>
         <div class="container">
             <div class="row justify-content-md-center">
-
-                <section class="col-sm-12 col-lg-8  py-5">
-                    <form action="recherche.php" method="get">
-                        <p>Département <input type="text" name="Departement" placeholder="Rechercher..."/></p>
-                        <p>Nom <input type="text" name="Nom" placeholder="Rechercher..."/></p>
-                        <p>Âge entre <input type="number" name="min" value="0" placeholder="Âge min"/> et <input type="number" name="max" value="1000" placeholder="Âge max"/></p>
-                        <input type="submit" value="Rechercher" />    
-                    </form>
-                </section>
-
                 <section class="col-sm-12 col-lg-8 bloc py-5">
                     <article>
                         <table class="table table-striped centered-table">

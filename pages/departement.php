@@ -24,7 +24,10 @@ require_once("../fonction/bdd.php");
           <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php">Recherche</a>
+          <a class="nav-link active" aria-current="page" href="nb_employee.php">Salaire</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="formulairerech.php">Recherche</a>
         </li>
     </div>
   </div>

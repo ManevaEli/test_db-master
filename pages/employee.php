@@ -26,7 +26,11 @@ require_once("../fonction/bdd.php");
           <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php">Recherche</a>
+          <a class="nav-link active" aria-current="page" href="nb_employee.php">Salaire</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="formulairerech.php">Recherche</a>
         </li>
 </div>
 
@@ -71,7 +75,7 @@ require_once("../fonction/bdd.php");
         <input type = "hidden" name="no_emp" value="<?php echo $donnees['emp_no']; ?>"> 
         <input type = "hidden" name="no_emp" value="<?php echo $donnees['emp_no']; ?>"> 
     </form>
-    <form class="button-group" action="formulairManager.php" method="POST">
+    <form class="button-group" action="choixDept.php" method="POST">
         <button class="btn btn-secondary btn-lg" type="submit">Changer de département</button>
     </form>
 </section>

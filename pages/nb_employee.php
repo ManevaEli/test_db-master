@@ -37,4 +37,7 @@ $result = countSalaire();
         </tbody>
     </table>
 </body>
+<footer>
+    <a href="index.php" class="btn btn-link">Retour à l'accueil</a>
+</footer>
 </html>
