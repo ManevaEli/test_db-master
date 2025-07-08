@@ -198,4 +198,42 @@ function getEmploipluslong()
     
 }
 
+function get_numdept(){
+    $bdd = dbconnect();
+    $nom=$_POST['name'];
+    $sql = sprintf("SELECT D.dept_no from departments D 
+    where D.dept_name = '%s'", $nom);
+    $resultat = mysqli_query($bdd,$sql);
+    $ret=  mysqli_fetch_assoc($resultat);
+    return $ret['dept_no'];
+}
+
+
+function recentMAnager() {
+    $nom=$_POST['name'];
+
+     $bdd = dbconnect();
+     $resultat =sprintf("
+        SELECT D.dept_no,
+               dm.from_date 
+        FROM departments D
+        JOIN dept_manager dm ON D.dept_no = dm.dept_no
+        WHERE D.dept_name = '%s'
+          AND dm.from_date = (
+              SELECT MAX(from_date)
+              FROM dept_manager
+              WHERE dept_no = D.dept_no
+          )
+        ORDER BY D.dept_name
+        LIMIT 1
+    ", $nom);
+
+$ret = mysqli_query($bdd,$resultat);
+
+if ($ret && $row = mysqli_fetch_assoc($ret)) {
+        return $row['from_date'];
+    } else {
+        return null;
+    }
+}
 ?>

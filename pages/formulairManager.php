@@ -1,6 +1,5 @@
 <?php 
 require_once("../fonction/bdd.php");
-echo $_POST['no_emp'];
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +13,7 @@ echo $_POST['no_emp'];
 </head>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <!-- <h1>Liste des départements</h1> -->
+        <h3>Devenir manager</h3>
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -37,17 +36,19 @@ echo $_POST['no_emp'];
 <body>
     <header>
         <h1>Devenir Manager </h1>
-        <h1> Département : </h1>
+        <h2>Département <?php echo $_POST['name'];?></h2>
     </header>
     <main>
 
     <div class="container">
     <div class="row justify-content-center">
         <section class="col-12 col-md-8 col-lg-6 py-5">
-            <form action="#" method="get" class="modern-form">
+            <form action="../fonction/devenirManager.php" method="POST" class="modern-form">
                 <div class="form-group mb-4">
                     <label for="date-field" class="form-label">Date de début</label>
                     <input type="date" id="date-field" name="date" class="form-control form-control-lg">
+                      <input type="hidden" name="emp" value="<?php echo $_POST['no_emp']; ?>">
+                      <input type="hidden" name="name" value="<?php echo $_POST['name']; ?>">
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg shadow-sm">Valider</button>
             </form>

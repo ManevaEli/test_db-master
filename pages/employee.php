@@ -1,6 +1,5 @@
 <?php 
 require_once("../fonction/bdd.php"); 
-
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +72,7 @@ require_once("../fonction/bdd.php");
     <form class="button-group" action="formulairManager.php" method="POST">
         <button class="btn btn-primary btn-lg" type="submit">Devenir Manager</button>
         <input type = "hidden" name="no_emp" value="<?php echo $donnees['emp_no']; ?>"> 
-        <input type = "hidden" name="no_emp" value="<?php echo $donnees['emp_no']; ?>"> 
+        <input type = "hidden" name="name" value="<?php echo $_POST['name']; ?>"> 
     </form>
     <form class="button-group" action="choixDept.php" method="POST">
         <button class="btn btn-secondary btn-lg" type="submit">Changer de département</button>
