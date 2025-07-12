@@ -56,8 +56,11 @@ function get_employe()
 {
      $bdd = dbconnect();
      $nom_d=$_POST['emp'];
-    $resultat=sprintf("SELECT * from employees
-    where emp_no = '%s'
+    $resultat=sprintf("SELECT * from employees e
+            JOIN dept_emp de ON e.emp_no = de.emp_no
+            JOIN departments d ON d.dept_no = de.dept_no
+WHERE e.emp_no = '%s'
+AND de.to_date = '9999-01-01'
         ",$nom_d);
 
     $return =  mysqli_query($bdd,$resultat);
@@ -236,4 +239,26 @@ if ($ret && $row = mysqli_fetch_assoc($ret)) {
         return null;
     }
 }
+
+function changer_dept ($dept, $date, $emp_no)
+{
+    $bdd= dbconnect();
+    $query = sprintf("SELECT from_date FROM dept_emp WHERE emp_no = '%s' AND to_date = '9999-01-01'", $emp_no);
+    $result = mysqli_query($bdd, $query);
+    $current_from_date = mysqli_fetch_assoc($result)['from_date'];
+    if ($date < $current_from_date) {
+        echo "<script>alert('Erreur : la nouvelle date de début est antérieure à la date actuelle du département ($current_from_date).'); 
+              window.history.back();</script>";
+        exit;
+    }
+
+    $sql= sprintf("UPDATE dept_emp 
+    SET to_date= '%s' WHERE emp_no='%s' AND to_date='9999-01-01'", $date, $emp_no);
+    $sql1= sprintf("INSERT INTO dept_emp 
+    values ('%s', '%s', '%s', '9999-01-01')", $emp_no, $dept, $date);
+    mysqli_query($bdd, $sql);
+    mysqli_query($bdd, $sql1);
+  header("Location: ../pages/index.php");
+}
+
 ?>

@@ -1,13 +1,3 @@
-Etapes
-. Télécharger les données ici https://github.com/datacharmer/test_db (download zip) Le fichier fait
-35Mo. Utiliser localsend pour donner aux autres étudiants.
-. Lire le fichier Readme pour installer.
-. Voir l'image pour voir la structure de la base (images/employees.png).
-Notes techniques
-. Respecter le rangement des répértoires
-. Utiliser Git en binôme
-. Utiliser Bootstrap
-Code
 Version 1 (maneva, mariah)
 (ok). Créer une page qui affiche la liste des départements
 (ok). Rajouter une colonne qui affiche le nom du manager en cours
@@ -33,14 +23,11 @@ Version 2
 
 
 Version 4
-(Maria)
-. Dans la fiche de l'employé, mettre un bouton "changer de département". Cela va ouvrir un formulaire
-(choix département, date de début).
-a. Vérifier que le nouveau département s'affiche bien après l'ajout
-b. Mettre en haut du formulaire le département actuel avec la date de début( dans la zone de liste, ne
-pas mettre le département actuel )
-c. Mettre un message de d'erreur si la date de début du nouveau département est antérieur à la date
-du début de l'actuel'
+(Mariah)
+--(ok)Dans la fiche de l'employé, mettre un bouton "changer de département". Cela va ouvrir un formulaire (choix département, date de début).
+--(ok)Vérifier que le nouveau département s'affiche bien après l'ajout
+--(ok)Mettre en haut du formulaire le département actuel avec la date de début( dans la zone de liste ne pas mettre le département actuel )
+--(ok)Mettre un message de d'erreur si la date de début du nouveau département est antérieur à la date du début de l'actuel
 
 
 (maneva ) 
@@ -48,3 +35,8 @@ du début de l'actuel'
 a. Vérifier dans la liste des départements qu'il est bien le nouveau manager
 b. Mettre en haut du formulaire le nom du manager en cours.
 c. Mettre un message de d'erreur si la date de début du nouveau manager est antérieur à la date du début de l'actuel
+
+Version 5
+. Créer une page pour ajouter/modifier un département
+. Créer les pages pour ajouter/modifier un employé , avec les infos, le département, et une case à
+cocher pour dire s'il est un manager ou pas.

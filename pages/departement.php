@@ -29,6 +29,10 @@ require_once("../fonction/bdd.php");
         <li class="nav-item">
           <a class="nav-link" href="formulairerech.php">Recherche</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="add_dept.php">Ajouter Département</a>
+        </li>
+
     </div>
   </div>
 </nav></header>

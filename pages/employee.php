@@ -1,5 +1,6 @@
 <?php 
 require_once("../fonction/bdd.php"); 
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -27,10 +28,13 @@ require_once("../fonction/bdd.php");
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="nb_employee.php">Salaire</a>
         </li>
-
         <li class="nav-item">
           <a class="nav-link" href="formulairerech.php">Recherche</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="add_dept.php">Ajouter Département</a>
+        </li>
+
 </div>
 
   </div>
@@ -52,6 +56,7 @@ require_once("../fonction/bdd.php");
               <h2>À propos de <?php echo $donnees['last_name'];?> <?php echo $donnees['first_name']; ?> </h2>
 
                       <table class="table table-striped centered-table">
+                    <th scope="col">Département</th>
                     <th scope="col">numero</th>
                     <th scope="col">nom</th>
                     <th scope="col">prénoms</th>
@@ -60,6 +65,7 @@ require_once("../fonction/bdd.php");
                      <th scope="col">date de naissance</th>
 
                     <tr>
+                    <td scope="row"><?php echo $donnees['dept_name']; ?></td>
                     <td scope="row"><?php echo $donnees['emp_no']; ?></td>
                     <td scope="row"><?php echo $donnees['last_name']; ?></td>
                     <td scope="row"><?php echo $donnees['first_name']; ?></td>
@@ -74,7 +80,10 @@ require_once("../fonction/bdd.php");
         <input type = "hidden" name="no_emp" value="<?php echo $donnees['emp_no']; ?>"> 
         <input type = "hidden" name="name" value="<?php echo $_POST['name']; ?>"> 
     </form>
-    <form class="button-group" action="choixDept.php" method="POST">
+    <form class="button-group" action="choixDept.php" method="GET">
+        <input type = "hidden" name="name_dept" value="<?php echo $donnees['dept_name']; ?>"> 
+        <input type = "hidden" name="date_debut" value="<?php echo $donnees['from_date']; ?>"> 
+        <input type = "hidden" name="no_emp" value="<?php echo $donnees['emp_no']; ?>"> 
         <button class="btn btn-secondary btn-lg" type="submit">Changer de département</button>
     </form>
 </section>
