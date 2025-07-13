@@ -74,6 +74,8 @@ session_start();
                     <td scope="row"><?php echo formatDate($donnees['birth_date']); ?></td>
      </tr>               
      </table>
+
+
      <section class="buttons py-5" style="display: flex; justify-content: center; gap: 8px;">
     <form class="button-group" action="formulairManager.php" method="POST">
         <button class="btn btn-primary btn-lg" type="submit">Devenir Manager</button>
@@ -87,7 +89,8 @@ session_start();
         <button class="btn btn-secondary btn-lg" type="submit">Changer de département</button>
     </form>
 </section>
-       <?php }?>
+       <?php } ?>
+
      </article>
 
         <article>

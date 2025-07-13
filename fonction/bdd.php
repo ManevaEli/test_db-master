@@ -240,6 +240,7 @@ if ($ret && $row = mysqli_fetch_assoc($ret)) {
     }
 }
 
+
 function changer_dept ($dept, $date, $emp_no)
 {
     $bdd= dbconnect();
